@@ -24,6 +24,11 @@ Dataset:
 Tables:
 * `data_stream`
 
+## Deployment
+### Cloud Functions
+    
+    gcloud beta functions deploy saveHeadsetData --trigger-topic=headset_data --source=./src/cloud/headset-cf
+
 
 ## Local Development (Dev/Test)
 ### PubSub Local Emulator
