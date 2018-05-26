@@ -63,6 +63,14 @@ Deploy function:
 
     functions deploy saveHeadsetData --trigger-topic=headset_data --source=./src/cloud/headset-cf
 
+Call function:
+
+    functions call saveHeadsetData --data=DATA
+
+See function logs:
+
+    functions logs read --limit=20
+
 #### Troubleshooting
 If you have trouble after upgrading, try deleting the config
 directory found in:

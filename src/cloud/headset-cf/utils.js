@@ -29,5 +29,14 @@ exports.saveData = (table, data) => {
       const res = data[0];
       return res;
     })
-    .catch(err => err);
+    .catch(err => {
+      // Partial Failure 
+      if (err.name === 'PartialFailureError') {
+        const error = err.errors[0];
+        console.log('ERROR');
+        console.log(error);
+        console.log(error.row);
+      }
+      console.log(err);
+    });
 };
