@@ -1,0 +1,108 @@
+{
+  "fields": [
+    {
+      "description": "",
+      "name": "channelData",
+      "type": "FLOAT",
+      "mode": "REPEATED"
+    },
+    {
+      "description": "",
+      "name": "valid",
+      "type": "BOOLEAN",
+      "mode": "NULLABLE"
+    },
+    {
+      "description": "",
+      "name": "sampleNumber",
+      "type": "INTEGER",
+      "mode": "NULLABLE"
+    },
+    {
+      "description": "",
+      "name": "accelData",
+      "type": "INTEGER",
+      "mode": "REPEATED"
+    },
+    {
+      "description": "",
+      "name": "auxData",
+      "type": "RECORD",
+      "mode": "NULLABLE",
+      "fields": [
+        {
+          "description": "",
+          "name": "lower",
+          "type": "RECORD",
+          "mode": "NULLABLE",
+          "fields": [
+            {
+              "description": "",
+              "name": "type",
+              "type": "STRING",
+              "mode": "NULLABLE"
+            },
+            {
+              "description": "",
+              "name": "data",
+              "type": "INTEGER",
+              "mode": "REPEATED"
+            }
+          ]
+        },
+        {
+          "description": "",
+          "name": "upper",
+          "type": "RECORD",
+          "mode": "NULLABLE",
+          "fields": [
+            {
+              "description": "",
+              "name": "type",
+              "type": "STRING",
+              "mode": "NULLABLE"
+            },
+            {
+              "description": "",
+              "name": "data",
+              "type": "INTEGER",
+              "mode": "REPEATED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "",
+      "name": "_timestamps",
+      "type": "RECORD",
+      "mode": "NULLABLE",
+      "fields": [
+        {
+          "description": "",
+          "name": "lower",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "description": "",
+          "name": "upper",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        }
+      ]
+    },
+    {
+      "description": "",
+      "name": "stopByte",
+      "type": "INTEGER",
+      "mode": "NULLABLE"
+    },
+    {
+      "description": "",
+      "name": "timestamp",
+      "type": "INTEGER",
+      "mode": "NULLABLE"
+    }
+  ]
+}

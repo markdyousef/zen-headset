@@ -14,7 +14,7 @@ async function main() {
   });
 
   const pubsub = new PubSub({
-    projectId: "Insai"
+    projectId: "insai-204311"
   });
 
   // create topic if it doesn't already exist
