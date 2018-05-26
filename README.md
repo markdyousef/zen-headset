@@ -25,8 +25,8 @@ Tables:
 * `data_stream`
 
 
-## Local Development (Dev/Test)
-### PubSub Local Emulator
+# Local Development (Dev/Test)
+## PubSub Local Emulator
 #### 1. Docker Image
 Pull image and run container
 
@@ -46,8 +46,8 @@ Connect to emulator
     gcloud beta emulators pubsub start [options]
     gcloud beta emulators pubsub env-init
     export PUBSUB_EMULATOR_HOST="localhost:8085"
-
-### Cloud Functions Local Emulator
+___
+## Cloud Functions Local Emulator
 * [gcloud Docs](https://cloud.google.com/functions/docs/emulator)
 
 Install gcloud **Functions Emulator**

@@ -1,0 +1,8 @@
+{
+    "BUCKET": "gs://insai-bigquery-schemas",
+    "FILE": "cyton_data.json",
+    "DATASET_DEV": "headset_dev",
+    "DATASET_TEST": "headset_test",
+    "TABLE": "cyton_data",
+    "PROJECT_ID": "insai-204311"
+}
