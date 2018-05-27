@@ -1,19 +1,25 @@
 import React, { Component } from "react";
 
 class App extends Component {
+  state = {
+    data: []
+  }
   componentDidMount() {
-    this.getData()
+    this.getData().then(data => {
+      this.setState({ data });
+    })
   }
   getData = async () => {
-    const response = await fetch('/api/');
+    const response = await fetch("/api/");
     try {
       const body = await response.json();
-      console.log(body);
-    } catch(err) {
-      console.log(err);
+      const { data } = body;
+      return data;
+    } catch (err) {
     }
-  }
+  };
   render() {
+    console.log(this.state);
     return <div>Hello</div>;
   }
 }
