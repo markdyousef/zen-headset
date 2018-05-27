@@ -1,37 +1,12 @@
 # Zen Headset
-## Components
 
-#### OpenBCI - Cyton
-##### DataStream
-##### Controls
-##### Callibration / ML
+## Dev Environment
+### run client and server
 
-#### Google Cloud Platform
-##### Pub/Sub
-Topics:
-* `headset_data`,
-* `headset_controls`,
-* `headset_model`
+        yarn dev
 
-##### Cloud Function
-Format and store data in BigQuery
-* trigger-topic=`headset_data`
-
-##### BigQuery
-Dataset:
-* `headset_dev`
-
-Tables:
-* `data_stream`
-
-## Deployment
-### Cloud Functions
-    
-    gcloud beta functions deploy saveHeadsetData --trigger-topic=headset_data --source=./src/cloud/headset-cf
-
-
-# Local Development (Dev/Test)
-## PubSub Local Emulator
+## Test Environment
+### PubSub Local Emulator
 #### 1. Docker Image
 Pull image and run container
 
@@ -52,7 +27,7 @@ Connect to emulator
     gcloud beta emulators pubsub env-init
     export PUBSUB_EMULATOR_HOST="localhost:8085"
 ___
-## Cloud Functions Local Emulator
+#### Cloud Functions Local Emulator
 * [gcloud Docs](https://cloud.google.com/functions/docs/emulator)
 
 Install gcloud **Functions Emulator**
@@ -76,7 +51,7 @@ See function logs:
 
     functions logs read --limit=20
 
-#### Troubleshooting
+##### Troubleshooting
 If you have trouble after upgrading, try deleting the config
 directory found in:
 
@@ -86,3 +61,23 @@ Then restart the emulator. You can also check for any renegade
 Node.js emulator processes that may need to be killed:
 
     ps aux | grep node
+
+## Google Cloud Platform
+#### Pub/Sub
+* Topics: `headset_data`, `headset_controls`, `headset_model`
+
+#### Cloud Function
+* trigger-topic=`headset_data`
+
+#### BigQuery
+Datasets:
+* `headset_dev`
+* `headset_test`
+
+Tables:
+* `cyton_data`
+
+## Deployment
+### Cloud Functions
+    
+    gcloud beta functions deploy saveHeadsetData --trigger-topic=headset_data --source=./src/cloud/headset-cf

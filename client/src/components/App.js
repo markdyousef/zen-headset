@@ -5,8 +5,7 @@ class App extends Component {
     this.getData()
   }
   getData = async () => {
-    const response = await fetch('http://localhost:5000/');
-    console.log(response);
+    const response = await fetch('/api/');
     try {
       const body = await response.json();
       console.log(body);
