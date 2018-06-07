@@ -1,18 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-
-const ItemContainer = styled.div`
-  width: 100%;
-  max-height: 200px;
-  background: #fff;
-  border: 1px solid #000;
-  position: relative;
-`;
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExtensionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExtensionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpansionPanelActions from "@material-ui/core/ExpansionPanelActions";
+import Divider from "@material-ui/core/Divider";
+import Button from "@material-ui/core/Button";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import moment from "moment";
 
 const Header = styled.header`
+  width: 100%;
   display: flex;
   align-items: baseline;
-  background: #fafafa;
+  position: relative;
+  justify-content: space-between;
   h3 {
     font-size: 14px;
     margin: 5px;
@@ -26,9 +28,16 @@ const Header = styled.header`
 `;
 
 const Score = styled.span`
-  position: absolute;
-  right: 0;
-  top: 0;
+  color: #ddd;
+  margin-right: 10px;
+`;
+
+const Title = styled.span`
+  width: 100%;
+`;
+
+const Time = styled.span`
+min-width: 100px;
 `;
 
 const Bottom = styled.section``;
@@ -36,33 +45,58 @@ const Categories = styled.section``;
 
 const Links = styled.section``;
 
-export const ListItem = ({ item }) => {
+export const ListItem = ({ item, handleChange, expanded }) => {
+  const time = moment.unix(item.time).fromNow();
   return (
-    <ItemContainer>
-      <Header>
-        <h3>{item.title}</h3>
-        <h5>{item.by}</h5>
-        <p>{item.time}</p>
-      </Header>
-      <Score>
-        <b>{item.score}</b>
-      </Score>
-      <Bottom>
-      <Categories>
-        <p>{item.type}</p>
-      </Categories>
-      <Links>
-        <a href={item.url}>{item.url}</a>
-      </Links>
-      </Bottom>
-    </ItemContainer>
+    <ExpansionPanel expanded={expanded} onChange={handleChange}>
+      <ExtensionPanelSummary expandIcon={<ExpandMoreIcon />}>
+        <Header>
+          <Score>{item.score}</Score>
+          <Title>
+            <h3>{item.title}</h3>
+            <h5>@{item.by}</h5>
+          </Title>
+          <Time>{time}</Time>
+        </Header>
+      </ExtensionPanelSummary>
+      <ExtensionPanelDetails>
+        <Bottom>
+          <Categories>
+            <p>{item.type}</p>
+          </Categories>
+          <Links>
+            <a href={item.url}>{item.url}</a>
+          </Links>
+        </Bottom>
+      </ExtensionPanelDetails>
+      <Divider />
+      <ExpansionPanelActions>
+        <Button size="small">Close</Button>
+        <Button size="small" color="primary">
+          Save
+        </Button>
+      </ExpansionPanelActions>
+    </ExpansionPanel>
   );
 };
 
 class ItemList extends React.Component {
+  state = {
+    expandedItem: -1
+  };
+  handleItemChange = (event, idx) => {
+    this.setState({ expandedItem: idx });
+  };
   renderList = () => {
     const { items } = this.props;
-    return items.map(item => <ListItem item={item} key={item.id} />);
+    return items.map((item, idx) => (
+      <ListItem
+        item={item}
+        key={item.id}
+        handleChange={event => this.handleItemChange(event, idx)}
+        expanded={idx === this.state.expandedItem}
+      />
+    ));
   };
   render() {
     return <div>{this.renderList()}</div>;
