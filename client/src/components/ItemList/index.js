@@ -31,6 +31,7 @@ const Score = styled.span`
   top: 0;
 `;
 
+const Bottom = styled.section``;
 const Categories = styled.section``;
 
 const Links = styled.section``;
@@ -46,12 +47,14 @@ export const ListItem = ({ item }) => {
       <Score>
         <b>{item.score}</b>
       </Score>
+      <Bottom>
       <Categories>
         <p>{item.type}</p>
       </Categories>
       <Links>
         <a href={item.url}>{item.url}</a>
       </Links>
+      </Bottom>
     </ItemContainer>
   );
 };
