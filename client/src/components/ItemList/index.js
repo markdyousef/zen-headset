@@ -7,8 +7,12 @@ import ExpansionPanelActions from "@material-ui/core/ExpansionPanelActions";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Chip from "@material-ui/core/Chip";
 import moment from "moment";
 
+/**
+ * Expansion Panel Styles
+ */
 const Header = styled.header`
   width: 100%;
   display: flex;
@@ -37,7 +41,7 @@ const Title = styled.span`
 `;
 
 const Time = styled.span`
-min-width: 100px;
+  min-width: 100px;
 `;
 
 const Bottom = styled.section``;
@@ -45,7 +49,14 @@ const Categories = styled.section``;
 
 const Links = styled.section``;
 
-export const ListItem = ({ item, handleChange, expanded }) => {
+/**
+ * ListItem Component
+ *
+ * @param {item} param0
+ * @param {handleChange} param1
+ * @param {expanded} param2
+ */
+export const ListItem = ({ item, handleChange, expanded, categories }) => {
   const time = moment.unix(item.time).fromNow();
   return (
     <ExpansionPanel expanded={expanded} onChange={handleChange}>
@@ -56,6 +67,7 @@ export const ListItem = ({ item, handleChange, expanded }) => {
             <h3>{item.title}</h3>
             <h5>@{item.by}</h5>
           </Title>
+          {categories}
           <Time>{time}</Time>
         </Header>
       </ExtensionPanelSummary>
@@ -80,12 +92,21 @@ export const ListItem = ({ item, handleChange, expanded }) => {
   );
 };
 
+/**
+ * ItemList
+ */
 class ItemList extends React.Component {
   state = {
     expandedItem: -1
   };
   handleItemChange = (event, idx) => {
     this.setState({ expandedItem: idx });
+  };
+  renderCategories = () => {
+    const categories = ["frontend", "deeplearning", "backend"];
+    return categories.map((category, idx) => (
+      <Chip key={category + idx} label={category} />
+    ));
   };
   renderList = () => {
     const { items } = this.props;
@@ -95,6 +116,7 @@ class ItemList extends React.Component {
         key={item.id}
         handleChange={event => this.handleItemChange(event, idx)}
         expanded={idx === this.state.expandedItem}
+        categories={this.renderCategories()}
       />
     ));
   };

@@ -42,6 +42,21 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Unknown
+          categories={
+                    Array [
+                              <WithStyles(Chip)
+                                label="frontend"
+                    />,
+                              <WithStyles(Chip)
+                                label="deeplearning"
+                    />,
+                              <WithStyles(Chip)
+                                label="backend"
+                    />,
+                            ]
+          }
+          expanded={false}
+          handleChange={[Function]}
           item={
                     Object {
                               "by": "rchaudhary",
@@ -72,6 +87,19 @@ ShallowWrapper {
         "key": "17256923",
         "nodeType": "function",
         "props": Object {
+          "categories": Array [
+            <WithStyles(Chip)
+              label="frontend"
+/>,
+            <WithStyles(Chip)
+              label="deeplearning"
+/>,
+            <WithStyles(Chip)
+              label="backend"
+/>,
+          ],
+          "expanded": false,
+          "handleChange": [Function],
           "item": Object {
             "by": "rchaudhary",
             "descendants": 9,
@@ -106,6 +134,21 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Unknown
+            categories={
+                        Array [
+                                    <WithStyles(Chip)
+                                      label="frontend"
+                        />,
+                                    <WithStyles(Chip)
+                                      label="deeplearning"
+                        />,
+                                    <WithStyles(Chip)
+                                      label="backend"
+                        />,
+                                  ]
+            }
+            expanded={false}
+            handleChange={[Function]}
             item={
                         Object {
                                     "by": "rchaudhary",
@@ -136,6 +179,19 @@ ShallowWrapper {
           "key": "17256923",
           "nodeType": "function",
           "props": Object {
+            "categories": Array [
+              <WithStyles(Chip)
+                label="frontend"
+/>,
+              <WithStyles(Chip)
+                label="deeplearning"
+/>,
+              <WithStyles(Chip)
+                label="backend"
+/>,
+            ],
+            "expanded": false,
+            "handleChange": [Function],
             "item": Object {
               "by": "rchaudhary",
               "descendants": 9,
