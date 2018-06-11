@@ -32,6 +32,10 @@
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
-    "jest": "^22.4.3"
+    "jest": "^22.4.3",
+    "react-test-renderer": "^16.4.0"
+  },
+  "jest": {
+    "testPathIgnorePatterns": ["<rootDir>/client"]
   }
 }
