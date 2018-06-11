@@ -6,10 +6,19 @@ import {
   Toolbar,
   IconButton,
   Typography,
-  Slide
+  Slide,
 } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
+import styled from "styled-components";
 import { getStoryHTML } from "../../data/discover-actions";
+
+const AppBarContainer = styled.nav`
+`;
+
+const ContentContainer = styled.div`
+  margin-top: 60px;
+  overflow: scroll;
+`;
 
 function Transition(props) {
   return <Slide direction="up" {...props} />;
@@ -36,17 +45,21 @@ class FullScreenDialog extends Component {
         onClose={() => this.props.handleChange(false)}
         TransitionComponent={Transition}
       >
-        <AppBar>
-          <Toolbar>
-            <IconButton
-              onClick={() => this.props.handleChange(false)}
-              aria-label="Close"
-            >
-              <CloseIcon />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
-        <div dangerouslySetInnerHTML={{ __html: this.state.html }} />
+          <AppBarContainer>
+            <AppBar>
+              <Toolbar>
+                <IconButton
+                  onClick={() => this.props.handleChange(false)}
+                  aria-label="Close"
+                >
+                  <CloseIcon />
+                </IconButton>
+              </Toolbar>
+            </AppBar>
+          </AppBarContainer>
+          <ContentContainer>
+            <div dangerouslySetInnerHTML={{ __html: this.state.html }} />
+          </ContentContainer>
       </Dialog>
     );
   }
