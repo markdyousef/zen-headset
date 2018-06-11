@@ -9,6 +9,7 @@ import {
   Slide
 } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
+import { getStoryHTML } from "../../data/discover-actions";
 
 function Transition(props) {
   return <Slide direction="up" {...props} />;
@@ -17,18 +18,17 @@ function Transition(props) {
 class FullScreenDialog extends Component {
   state = {
     html: null
-  }
+  };
   componentDidMount() {
     const {
-      item: { url }
+      item: { id }
     } = this.props;
-    fetch(url, {mode: "cors"})
-      .then(res => res.text())
-      .then(html => this.setState({html}))
+    getStoryHTML(id)
+      .then(html => this.setState({ html }))
       .catch(err => console.log(err));
   }
   render() {
-    console.log(this.state.html)
+    console.log(this.state.html);
     return (
       <Dialog
         fullScreen
@@ -46,7 +46,7 @@ class FullScreenDialog extends Component {
             </IconButton>
           </Toolbar>
         </AppBar>
-        <div dangerouslySetInnerHTML={{__html: this.state.html}}/>
+        <div dangerouslySetInnerHTML={{ __html: this.state.html }} />
       </Dialog>
     );
   }
