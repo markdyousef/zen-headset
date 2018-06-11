@@ -24,7 +24,6 @@ class HeadsetDialog extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ isLoading: false });
-      console.log(this.state);
     }, 2000);
   }
   renderSettings = () => {

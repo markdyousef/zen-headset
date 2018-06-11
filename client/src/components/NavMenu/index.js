@@ -12,8 +12,6 @@ class NavMenu extends Component {
     this.setState({ showDrawer: value });
   };
   handleDialogChange = (value = true) => {
-    console.log("Dialog")
-    console.log(value)
     this.setState({ showDialog: value });
   };
   render() {

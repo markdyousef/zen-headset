@@ -1,8 +1,5 @@
 import React from "react";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExtensionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExtensionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import ExpansionPanelActions from "@material-ui/core/ExpansionPanelActions";
+import {ExpansionPanel, ExpansionPanelActions,ExpansionPanelDetails, ExpansionPanelSummary} from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -44,7 +41,6 @@ const Time = styled.span`
 `;
 
 const Bottom = styled.section``;
-const Categories = styled.section``;
 
 const Links = styled.section``;
 
@@ -54,37 +50,37 @@ const Links = styled.section``;
  * @param {item} param0
  * @param {handleChange} param1
  * @param {expanded} param2
+ * @param {openDetail} param3
  */
-export const ListItem = ({ item, handleChange, expanded, categories }) => {
+export const ListItem = ({ item, handleChange, expanded,  openDetail}) => {
   const time = moment.unix(item.time).fromNow();
   return (
     <ExpansionPanel expanded={expanded} onChange={handleChange}>
-      <ExtensionPanelSummary expandIcon={<ExpandMoreIcon />}>
+      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
         <Header>
           <Score>{item.score}</Score>
           <Title>
             <h3>{item.title}</h3>
             <h5>@{item.by}</h5>
           </Title>
-          {categories}
+          {/* {categories} */}
           <Time>{time}</Time>
         </Header>
-      </ExtensionPanelSummary>
-      <ExtensionPanelDetails>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
         <Bottom>
-          <Categories>
-            <p>{item.type}</p>
-          </Categories>
-          <Links>
-            <a href={item.url}>{item.url}</a>
-          </Links>
+          Summary...
+          <Button size="small" onClick={openDetail}>Read</Button>
+          {/* <Links>
+            <a href={item.url}>Read</a>
+          </Links> */}
         </Bottom>
-      </ExtensionPanelDetails>
+      </ExpansionPanelDetails>
       <Divider />
       <ExpansionPanelActions>
         <Button size="small">Close</Button>
         <Button size="small" color="primary">
-          Save
+          Later
         </Button>
       </ExpansionPanelActions>
     </ExpansionPanel>
