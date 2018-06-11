@@ -6,10 +6,25 @@
     "configurations": [
         {
             "type": "node",
-            "name": "vscode-jest-tests",
+            "name": "client-react-jest",
+            "request": "launch",
+            "program": "${workspaceFolder}/client/node_modules/.bin/react-scripts",
+            "args": [
+                "test",
+                "--env=jsdom",
+                "--runInBand"
+            ],
+            "cwd": "${workspaceFolder}/client",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "node",
+            "name": "server-node-jest",
             "request": "launch",
             "program": "${workspaceFolder}/node_modules/jest/bin/jest",
             "args": [
+                // "test",
                 "--runInBand"
             ],
             "cwd": "${workspaceFolder}",
