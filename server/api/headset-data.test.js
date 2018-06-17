@@ -1,4 +1,4 @@
-const { fetchData } = require("./headsetData");
+const { fetchData } = require("./headset-data");
 require("dotenv").config()
 const { PROJECT_ID, DATASET_DEV, TABLE } = process.env;
 

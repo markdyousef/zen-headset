@@ -1,4 +1,4 @@
-const { fetchStory, fetchStoryHTML, fetchStories } = require("./discoverData");
+const { fetchStory, fetchStoryHTML, fetchStories } = require("./discover-data");
 
 const STORY_ID = 17286770;
 describe("UNIT TEST - actions.discoverData", () => {
@@ -14,9 +14,9 @@ describe("UNIT TEST - actions.discoverData", () => {
       done();
     });
   });
-  test("fetchStories() should return 10 topStories", done => {
+  test("fetchStories() should return 100 topStories", done => {
     fetchStories().then(stories => {
-      expect(stories.length).toBe(10);
+      expect(stories.length).toBe(100);
       done();
     });
   });

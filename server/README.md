@@ -2,7 +2,8 @@
 
 ## Test Environment
 ### PubSub Local Emulator
-#### 1. Docker Image
+
+#### 1. Docker Image (Root Directory)
 Pull image and run container
 
     docker build -t insai/pubsub-emulator

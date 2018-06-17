@@ -1,0 +1,30 @@
+{
+  "name": "zen-headset",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "jest"
+  },
+  "scripts": {},
+  "author": "markdyousef",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/insai-labs/zen-headset/issues"
+  },
+  "homepage": "https://gitlab.com/insai-labs/zen-headset#README",
+  "dependencies": {
+    "@google-cloud/bigquery": "^1.3.0",
+    "@google-cloud/pubsub": "^0.18.0",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "node-fetch": "^2.1.2",
+    "openbci-cyton": "^1.1.3",
+    "openbci-utilities": "^0.3.5",
+    "socket.io": "^2.1.0"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3",
+    "react-test-renderer": "^16.4.0"
+  }
+}
