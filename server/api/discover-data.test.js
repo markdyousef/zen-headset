@@ -1,7 +1,7 @@
 const { fetchStory, fetchStoryHTML, fetchStories } = require("./discover-data");
 
 const STORY_ID = 17286770;
-describe("UNIT TEST - actions.discoverData", () => {
+describe("UNIT TEST - api.discover-data", () => {
   test("fetchStory(id)", done => {
     fetchStory(STORY_ID).then(res => {
       expect(res).toMatchObject({ by: "typpo" });
