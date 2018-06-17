@@ -11,6 +11,8 @@ require("dotenv").config();
 const port = process.env.PORT || 5000;
 const { PROJECT_ID, DATASET_TEST, TABLE } = process.env;
 
+app.use(express.json());       // to support JSON-encoded bodies
+app.use(express.urlencoded()); // to support URL-encoded bodies
 /**
  * Headset API
  */
@@ -50,6 +52,20 @@ discover.get("/:storyId", (req, res) => {
  * Collect API
  */
 const collect = express();
+collect.get("/list/:accessToken", (req, res) => {
+  const accessToken = req.params.accessToken;
+  collectPocket
+    .getData(accessToken)
+    .then(data => res.json(data))
+    .catch(err => res.json(err));
+});
+collect.post("/list", (req, res) => {
+  const { title, url, accessToken } = req.body; 
+  collectPocket
+    .saveItem(accessToken, title, url)
+    .then(data => res.json(data))
+    .catch(err => res.json(err));
+});
 collect.get("/request_token", (req, res) => {
   collectPocket
     .requestToken()
@@ -57,10 +73,10 @@ collect.get("/request_token", (req, res) => {
     .catch(err => res.json(err));
 });
 collect.get("/access_token/:requestToken", (req, res) => {
-  const token = req.params.requestToken;
+  const requestToken = req.params.requestToken;
   collectPocket
-    .convertToken(token)
-    .then(token => res.json({ token }))
+    .convertToken(requestToken)
+    .then(token => res.json({token}))
     .catch(err => res.json({ err }));
 });
 
