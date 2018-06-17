@@ -3,16 +3,20 @@ import {
   Card,
   CardActions,
   CardContent,
-  Button,
-  Typography
+  Button
 } from "@material-ui/core";
 import styled from "styled-components";
+import pocketImage from "../../assets/pocket.png";
 import { requestToken, convertToken } from "../../data/collect-actions";
 
 const CardContainer = styled.div`
   width: 280px;
   height: 200px;
 `;
+
+const IntImage = styled.img`
+  width: 100%;
+`
 
 /**
  * Pocket Integration Card
@@ -46,7 +50,7 @@ export default class extends Component {
       <CardContainer>
         <Card>
           <CardContent>
-            <Typography>Pocket</Typography>
+            <IntImage src={pocketImage} />
           </CardContent>
           <CardActions>
             {isConnected ? (

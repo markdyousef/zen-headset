@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 
 const AppBarContainer = styled.section`
   padding-bottom: 60px;
@@ -21,11 +22,11 @@ export default ({ changeDrawer, changeDialog }) => {
             <MenuIcon onClick={() => changeDrawer()} />
           </IconButton>
           <Typography variant="title" style={{ flex: 1 }}>
-            Discover
+            {/* Discover */}
           </Typography>
           <Button variant="contained" onClick={() => changeDialog()}>Connect</Button>
           <IconButton>
-            <AccountCircle />
+            <Link to="/account"><AccountCircle /></Link>
           </IconButton>
         </ToolBar>
       </AppBar>
