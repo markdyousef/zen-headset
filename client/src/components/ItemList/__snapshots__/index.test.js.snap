@@ -45,6 +45,7 @@ ShallowWrapper {
           <Unknown
             expanded={false}
             handleChange={[Function]}
+            handleSave={[Function]}
             item={
                         Object {
                                     "by": "rchaudhary",
@@ -80,6 +81,7 @@ ShallowWrapper {
         "props": Object {
           "expanded": false,
           "handleChange": [Function],
+          "handleSave": [Function],
           "item": Object {
             "by": "rchaudhary",
             "descendants": 9,
@@ -119,6 +121,7 @@ ShallowWrapper {
             <Unknown
               expanded={false}
               handleChange={[Function]}
+              handleSave={[Function]}
               item={
                             Object {
                                           "by": "rchaudhary",
@@ -154,6 +157,7 @@ ShallowWrapper {
           "props": Object {
             "expanded": false,
             "handleChange": [Function],
+            "handleSave": [Function],
             "item": Object {
               "by": "rchaudhary",
               "descendants": 9,

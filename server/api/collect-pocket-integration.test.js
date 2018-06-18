@@ -10,6 +10,7 @@ describe("UNIT TEST - api.collect-pocket-integration", () => {
       done();
     });
   });
+  // TODO: find a way to use headless chrome to complete form
   test("redirectAuth(requestToken)", done => {
     redirectAuth(_requestToken).then(htmlPage => {
       expect(htmlPage).toBeDefined()
