@@ -2,6 +2,7 @@ import React from "react";
 import Chip from "@material-ui/core/Chip";
 import ListItem from "./ListItem";
 import ContentDetail from "../ContentDetail";
+import { saveItem } from "../../data/collect-actions";
 
 /**
  * ItemList
@@ -31,6 +32,12 @@ class ItemList extends React.Component {
     }
     this.setState({ item, showDetail: true });
   };
+  handleItemSave = async item => {
+    const { title, url } = item;
+    console.log(title, url);
+    const res = await saveItem(title, url);
+    console.log(res);
+  };
   renderList = () => {
     const { items } = this.props;
     return items.map((item, idx) => (
@@ -40,6 +47,7 @@ class ItemList extends React.Component {
         handleChange={event => this.handleItemChange(event, idx)}
         openDetail={() => this.handleItemDetail(true, item)}
         expanded={idx === this.state.expandedItem}
+        handleSave={() => this.handleItemSave(item)}
         // categories={this.renderCategories()}
       />
     ));

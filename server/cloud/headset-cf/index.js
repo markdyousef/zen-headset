@@ -7,7 +7,6 @@ exports.saveHeadsetData = event => {
   // decode pub/sub trigger event
   const message = event.data;
   const data = JSON.parse(Buffer.from(message.data, 'base64').toString())
-  console.log(data)
   return new Promise((resolve, reject) => {
     const bigquery = new BigQuery({ projectId: config.PROJECT_ID });
     getDataset(bigquery, config.DATASET_DEV)
