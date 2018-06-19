@@ -30,7 +30,6 @@ const Main = () => (
  * Styles Config
  */
 const styles = theme => ({});
-
 const MainStyled = withRoot(withStyles(styles)(Main));
 
 /**
