@@ -9,6 +9,7 @@ import {
 import InfoIcon from "@material-ui/icons/Info";
 import styled from "styled-components";
 import ContentDetail from "./ContentDetail";
+import { Route, Link } from "react-router-dom";
 
 const Container = styled.section`
   display: flex;
@@ -32,10 +33,11 @@ const Tile = ({ excerpt, image }) => (
 
 export default class extends Component {
   state = {
-    items: null,
-    showDetail: false
+    items: null
   };
   componentDidMount() {
+    console.log("Collections Mount");
+
     fetchData()
       .then(data => {
         const keys = Object.keys(data.list);
@@ -44,13 +46,6 @@ export default class extends Component {
       })
       .catch(err => console.log(err));
   }
-  handleItemDetail = (show = false, item) => {
-    console.log(item)
-    if (!show) {
-      return this.setState({ showDetail: show });
-    }
-    this.setState({ item, showDetail: true });
-  };
   renderCards = () => {
     const { items } = this.state;
     if (!items) return null;
@@ -67,7 +62,9 @@ export default class extends Component {
               title={tile.given_title}
               actionIcon={
                 <IconButton>
-                  <InfoIcon onClick={() => this.handleItemDetail(true, tile)}/>
+                  <Link to={`/collections/${tile.item_id}`}>
+                    <InfoIcon />
+                  </Link>
                 </IconButton>
               }
             />
@@ -80,13 +77,7 @@ export default class extends Component {
     return (
       <Container>
         {this.renderCards()}
-        {this.state.showDetail && (
-          <ContentDetail
-            open={this.state.showDetail}
-            handleChange={this.handleItemDetail}
-            item={this.state.item}
-          />
-        )}
+        <Route path={"/collections/:item_id"} component={ContentDetail} />
       </Container>
     );
   }
