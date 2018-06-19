@@ -1,7 +1,7 @@
 import React from "react";
 import Chip from "@material-ui/core/Chip";
 import ListItem from "./ListItem";
-import { saveItem } from "../../data/collect-actions";
+import { saveItem } from "../../data/collection-actions";
 
 /**
  * ItemList

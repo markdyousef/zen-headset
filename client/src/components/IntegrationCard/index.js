@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Card, CardActions, CardContent, Button } from "@material-ui/core";
 import styled from "styled-components";
 import pocketImage from "../../assets/pocket.png";
-import { requestToken, convertToken } from "../../data/collect-actions";
+import { requestToken, convertToken } from "../../data/collection-actions";
 
 const CardContainer = styled.div`
   width: 280px;
