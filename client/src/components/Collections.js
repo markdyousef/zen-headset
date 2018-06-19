@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getCollections() {
+  getItems() {
     dispatch(fetchData());
   }
 });

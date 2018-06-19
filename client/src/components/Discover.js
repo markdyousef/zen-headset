@@ -1,19 +1,18 @@
-import React, { Component } from "react";
-import { getStories } from "../data/discover-actions";
+import { connect } from "react-redux";
 import ItemList from "./ItemList";
+import { fetchStories } from "../data/discover-actions";
 
-class Discover extends Component {
-  state = {
-    items: []
-  }
-  componentWillMount() {
-    getStories().then(stories => {
-      this.setState({items: stories})
-    }).catch(err => console.log(err));
-  }
-  render() {
-    return <ItemList items={this.state.items} />;
-  }
-}
+const mapStateToProps = state => ({
+  ...state.discover
+});
 
-export default Discover;
+const mapDispatchToProps = dispatch => ({
+  getItems() {
+    dispatch(fetchStories());
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ItemList);

@@ -9,6 +9,7 @@ import InfoIcon from "@material-ui/icons/Info";
 import styled from "styled-components";
 import ContentDetail from "../ContentDetail";
 import { Route, Link } from "react-router-dom";
+import {CircularLoader} from "../common";
 
 const Container = styled.section`
   display: flex;
@@ -28,11 +29,12 @@ const Tile = ({ excerpt, image }) => (
 
 export default class extends Component {
   componentWillMount() {
-    this.props.getCollections();
+    this.props.getItems();
   }
   renderCards = () => {
-    const { items } = this.props;
-    if (!items) return null;
+    const { items, isLoading } = this.props;
+
+    if (isLoading) return <CircularLoader />
 
     // TODO: transform; add tile.cols etc.
     const tiles = items;

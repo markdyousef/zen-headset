@@ -1,4 +1,5 @@
 import constants from "../constants/collection-action-types";
+import {request, response} from "./actions";
 
 /**
  * Authentication
@@ -23,19 +24,11 @@ export const convertToken = async token => {
  * Retrieve
  */
 
-export const request = () => ({
-  type: constants.COLLECTIONS_REQUEST
-});
-
-export const response = data => ({
-  type: constants.COLLECTIONS_RESPONSE,
-  data
-});
 // fetch items
 export const fetchData = () => async dispatch => {
   // get access token from localstorage
   const accessToken = localStorage.getItem("access_token");
-  dispatch(request());
+  dispatch(request(constants.COLLECTIONS_REQUEST));
 
   // get collections from server
   const res = await fetch(`/api/collect/list/${accessToken}`);
@@ -44,7 +37,7 @@ export const fetchData = () => async dispatch => {
   // parse the returned list of items
   const keys = Object.keys(data.list);
   const items = keys.map(key => data.list[key]);
-  dispatch(response(items));
+  dispatch(response(constants.COLLECTIONS_RESPONSE, items));
 };
 
 /**
