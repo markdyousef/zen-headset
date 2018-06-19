@@ -16,7 +16,7 @@ describe("UNIT TEST - api.discover-data", () => {
   });
   test("fetchStories() should return 100 topStories", done => {
     fetchStories().then(stories => {
-      expect(stories.length).toBe(100);
+      expect(stories.length).toBe(20);
       done();
     });
   });

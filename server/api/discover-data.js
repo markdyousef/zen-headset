@@ -15,7 +15,7 @@ exports.fetchStoryHTML = async id => {
   return html;
 };
 
-exports.fetchStories = async (type = "topstories", count = 100) => {
+exports.fetchStories = async (type = "topstories", count = 20) => {
   const res = await fetch(`https://hacker-news.firebaseio.com/v0/${type}.json`);
   const storyIds = await res.json();
 

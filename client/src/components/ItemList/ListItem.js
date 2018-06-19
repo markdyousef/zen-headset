@@ -2,8 +2,8 @@ import React from "react";
 import {
   ExpansionPanel,
   ExpansionPanelActions,
-  ExpansionPanelDetails,
-  ExpansionPanelSummary
+  ExpansionPanelSummary,
+  Chip
 } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
@@ -32,12 +32,15 @@ const Header = styled.header`
   }
 `;
 
-const Score = styled.span`
+const ScoreContainer = styled.span`
   color: #ddd;
   margin-right: 10px;
+  max-width: 50px;
 `;
 
-const Title = styled.span`
+const Score = ({score}) => <ScoreContainer><Chip label={score}/></ScoreContainer>
+
+const Title = styled.div`
   width: 100%;
 `;
 
@@ -47,34 +50,37 @@ const Time = styled.span`
 
 const Bottom = styled.section``;
 
-const Links = styled.section``;
+const Link = styled.a`
+  text-decoration: none;
+  color: inherit;
+`;
+
 
 /**
  * ListItem Component
  */
-export const ListItem = ({ item, handleChange, expanded, openDetail, handleSave }) => {
+export const ListItem = ({
+  item,
+  handleChange,
+  expanded,
+  openDetail,
+  handleSave
+}) => {
   const time = moment.unix(item.time).fromNow();
   return (
     <ExpansionPanel expanded={expanded} onChange={handleChange}>
       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
         <Header>
-          <Score>{item.score}</Score>
+          <Score score={item.score} />
           <Title>
-            <h3>{item.title}</h3>
+            <h3>
+              <Link href={item.url} target="_blank">{item.title}</Link>
+            </h3>
             <h5>@{item.by}</h5>
           </Title>
-          {/* {categories} */}
           <Time>{time}</Time>
         </Header>
       </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
-        <Bottom>
-          Summary...
-          <Button size="small" onClick={openDetail}>
-            Read
-          </Button>
-        </Bottom>
-      </ExpansionPanelDetails>
       <Divider />
       <ExpansionPanelActions>
         <Button size="small" color="primary" onClick={handleSave}>

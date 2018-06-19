@@ -13,14 +13,18 @@ const ListContainer = styled.nav`
   width: 200px;
 `;
 
+const Link = styled(NavLink)`
+  text-decoration: none;
+`;
+
 const NavListItem = ({ onChange, route, icon }) => (
   <ListContainer>
     <List>
       <ListItem button>
         {icon}
-        <NavLink to={"/" + route}>
+        <Link to={"/" + route}>
           <ListItemText primary={route} onClick={() => onChange(false)} />
-        </NavLink>
+        </Link>
       </ListItem>
     </List>
   </ListContainer>

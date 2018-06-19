@@ -34,6 +34,5 @@ export const saveItem = async (title, url) => {
     body: JSON.stringify({ title, url, accessToken })
   });
   const data = await res.json();
-  console.log(data);
   return data;
 };
