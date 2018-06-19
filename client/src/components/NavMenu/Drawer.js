@@ -1,11 +1,7 @@
 import React from "react";
-import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
+import {Drawer, List, ListItem, ListItemText} from "@material-ui/core";
 import WorldIcon from "@material-ui/icons/Language";
 import CollectionsIcon from "@material-ui/icons/Collections";
-import Divider from "@material-ui/core/Divider";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 

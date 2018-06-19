@@ -7,11 +7,16 @@ import Typography from "@material-ui/core/Typography";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const AppBarContainer = styled.section`
   padding-bottom: 60px;
 `;
+
+const Link = styled(NavLink)`
+  text-decoration: none;
+  color: inherit;
+`
 
 export default ({ changeDrawer, changeDialog }) => {
   return (
@@ -24,7 +29,7 @@ export default ({ changeDrawer, changeDialog }) => {
           <Typography variant="title" style={{ flex: 1 }}>
             {/* Discover */}
           </Typography>
-          <Button variant="contained" onClick={() => changeDialog()}>Connect</Button>
+          <Button variant="contained" color="primary" onClick={() => changeDialog()}>Connect</Button>
           <IconButton>
             <Link to="/account"><AccountCircle /></Link>
           </IconButton>

@@ -41,35 +41,31 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        Array [
-          <Unknown
-            expanded={false}
-            handleChange={[Function]}
-            handleSave={[Function]}
-            item={
-                        Object {
-                                    "by": "rchaudhary",
-                                    "descendants": 9,
-                                    "id": 17256923,
-                                    "kids": Array [
-                                      17259028,
-                                      17258582,
-                                      17258792,
-                                      17258618,
-                                      17259069,
-                                      17258445,
-                                    ],
-                                    "score": 65,
-                                    "time": 1528386584,
-                                    "title": "Raising a Very Unusual Round of Funding and Open-Sourcing Our Docs",
-                                    "type": "story",
-                                    "url": "https://sparktoro.com/blog/raised-a-very-unusual-round-of-funding-were-open-sourcing-our-docs/",
-                                  }
-            }
-            openDetail={[Function]}
+        <Unknown
+          expanded={false}
+          handleChange={[Function]}
+          handleSave={[Function]}
+          item={
+                    Object {
+                              "by": "rchaudhary",
+                              "descendants": 9,
+                              "id": 17256923,
+                              "kids": Array [
+                                17259028,
+                                17258582,
+                                17258792,
+                                17258618,
+                                17259069,
+                                17258445,
+                              ],
+                              "score": 65,
+                              "time": 1528386584,
+                              "title": "Raising a Very Unusual Round of Funding and Open-Sourcing Our Docs",
+                              "type": "story",
+                              "url": "https://sparktoro.com/blog/raised-a-very-unusual-round-of-funding-were-open-sourcing-our-docs/",
+                            }
+          }
 />,
-        ],
-        false,
       ],
     },
     "ref": null,
@@ -100,13 +96,11 @@ ShallowWrapper {
             "type": "story",
             "url": "https://sparktoro.com/blog/raised-a-very-unusual-round-of-funding-were-open-sourcing-our-docs/",
           },
-          "openDetail": [Function],
         },
         "ref": null,
         "rendered": null,
         "type": [Function],
       },
-      false,
     ],
     "type": "div",
   },
@@ -117,35 +111,31 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          Array [
-            <Unknown
-              expanded={false}
-              handleChange={[Function]}
-              handleSave={[Function]}
-              item={
-                            Object {
-                                          "by": "rchaudhary",
-                                          "descendants": 9,
-                                          "id": 17256923,
-                                          "kids": Array [
-                                            17259028,
-                                            17258582,
-                                            17258792,
-                                            17258618,
-                                            17259069,
-                                            17258445,
-                                          ],
-                                          "score": 65,
-                                          "time": 1528386584,
-                                          "title": "Raising a Very Unusual Round of Funding and Open-Sourcing Our Docs",
-                                          "type": "story",
-                                          "url": "https://sparktoro.com/blog/raised-a-very-unusual-round-of-funding-were-open-sourcing-our-docs/",
-                                        }
-              }
-              openDetail={[Function]}
+          <Unknown
+            expanded={false}
+            handleChange={[Function]}
+            handleSave={[Function]}
+            item={
+                        Object {
+                                    "by": "rchaudhary",
+                                    "descendants": 9,
+                                    "id": 17256923,
+                                    "kids": Array [
+                                      17259028,
+                                      17258582,
+                                      17258792,
+                                      17258618,
+                                      17259069,
+                                      17258445,
+                                    ],
+                                    "score": 65,
+                                    "time": 1528386584,
+                                    "title": "Raising a Very Unusual Round of Funding and Open-Sourcing Our Docs",
+                                    "type": "story",
+                                    "url": "https://sparktoro.com/blog/raised-a-very-unusual-round-of-funding-were-open-sourcing-our-docs/",
+                                  }
+            }
 />,
-          ],
-          false,
         ],
       },
       "ref": null,
@@ -176,13 +166,11 @@ ShallowWrapper {
               "type": "story",
               "url": "https://sparktoro.com/blog/raised-a-very-unusual-round-of-funding-were-open-sourcing-our-docs/",
             },
-            "openDetail": [Function],
           },
           "ref": null,
           "rendered": null,
           "type": [Function],
         },
-        false,
       ],
       "type": "div",
     },

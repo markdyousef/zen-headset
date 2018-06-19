@@ -1,7 +1,6 @@
 import React from "react";
 import Chip from "@material-ui/core/Chip";
 import ListItem from "./ListItem";
-import ContentDetail from "../ContentDetail";
 import { saveItem } from "../../data/collect-actions";
 
 /**
@@ -10,7 +9,6 @@ import { saveItem } from "../../data/collect-actions";
 class ItemList extends React.Component {
   state = {
     expandedItem: -1,
-    showDetail: false,
     item: null
   };
   handleItemChange = (event, idx) => {
@@ -26,12 +24,6 @@ class ItemList extends React.Component {
       <Chip key={category + idx} label={category} />
     ));
   };
-  handleItemDetail = (show = false, item) => {
-    if (!show) {
-      return this.setState({ showDetail: show });
-    }
-    this.setState({ item, showDetail: true });
-  };
   handleItemSave = async item => {
     const { title, url } = item;
     console.log(title, url);
@@ -45,7 +37,6 @@ class ItemList extends React.Component {
         item={item}
         key={item.id}
         handleChange={event => this.handleItemChange(event, idx)}
-        openDetail={() => this.handleItemDetail(true, item)}
         expanded={idx === this.state.expandedItem}
         handleSave={() => this.handleItemSave(item)}
         // categories={this.renderCategories()}
@@ -53,18 +44,7 @@ class ItemList extends React.Component {
     ));
   };
   render() {
-    return (
-      <div>
-        {this.renderList()}
-        {this.state.showDetail && (
-          <ContentDetail
-            open={this.state.showDetail}
-            handleChange={this.handleItemDetail}
-            item={this.state.item}
-          />
-        )}
-      </div>
-    );
+    return <div>{this.renderList()}</div>;
   }
 }
 

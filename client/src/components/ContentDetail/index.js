@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import {
-  Button,
   Dialog,
   AppBar,
   Toolbar,
   IconButton,
-  Typography,
   Slide,
 } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import styled from "styled-components";
-import { getStoryHTML } from "../../data/discover-actions";
 
 const AppBarContainer = styled.nav`
 `;
@@ -25,19 +22,8 @@ function Transition(props) {
 }
 
 class FullScreenDialog extends Component {
-  state = {
-    html: null
-  };
-  componentDidMount() {
-    const {
-      item: { id }
-    } = this.props;
-    getStoryHTML(id)
-      .then(html => this.setState({ html }))
-      .catch(err => console.log(err));
-  }
   render() {
-    console.log(this.state.html);
+    console.log(this.props);
     return (
       <Dialog
         fullScreen
@@ -58,7 +44,7 @@ class FullScreenDialog extends Component {
             </AppBar>
           </AppBarContainer>
           <ContentContainer>
-            <div dangerouslySetInnerHTML={{ __html: this.state.html }} />
+            Hello
           </ContentContainer>
       </Dialog>
     );

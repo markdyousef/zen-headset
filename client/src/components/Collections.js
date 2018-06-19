@@ -8,6 +8,7 @@ import {
 } from "@material-ui/core";
 import InfoIcon from "@material-ui/icons/Info";
 import styled from "styled-components";
+import ContentDetail from "./ContentDetail";
 
 const Container = styled.section`
   display: flex;
@@ -31,7 +32,8 @@ const Tile = ({ excerpt, image }) => (
 
 export default class extends Component {
   state = {
-    items: null
+    items: null,
+    showDetail: false
   };
   componentDidMount() {
     fetchData()
@@ -42,24 +44,30 @@ export default class extends Component {
       })
       .catch(err => console.log(err));
   }
+  handleItemDetail = (show = false, item) => {
+    console.log(item)
+    if (!show) {
+      return this.setState({ showDetail: show });
+    }
+    this.setState({ item, showDetail: true });
+  };
   renderCards = () => {
     const { items } = this.state;
     if (!items) return null;
 
     // TODO: transform; add tile.cols etc.
     const tiles = items;
-    console.log(tiles);
 
     return (
       <GridList cellHeight={160} cols={3}>
         {tiles.map(tile => (
           <GridListTile key={tile.item_id}>
-            <Tile excerpt={tile.excerpt} image={tile.image}/>
+            <Tile excerpt={tile.excerpt} image={tile.image} />
             <GridListTileBar
               title={tile.given_title}
               actionIcon={
                 <IconButton>
-                  <InfoIcon />
+                  <InfoIcon onClick={() => this.handleItemDetail(true, tile)}/>
                 </IconButton>
               }
             />
@@ -69,6 +77,17 @@ export default class extends Component {
     );
   };
   render() {
-    return <Container>{this.renderCards()}</Container>;
+    return (
+      <Container>
+        {this.renderCards()}
+        {this.state.showDetail && (
+          <ContentDetail
+            open={this.state.showDetail}
+            handleChange={this.handleItemDetail}
+            item={this.state.item}
+          />
+        )}
+      </Container>
+    );
   }
 }
