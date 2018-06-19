@@ -1,6 +1,6 @@
 import ContentDetail from "./ContentDetail";
 import { connect } from "react-redux";
-import {setActive} from "../../data/collection-actions-ui";
+import {setActive} from "../../data/collection-actions";
 
 const mapStateToProps = state => ({
   ...state.collections

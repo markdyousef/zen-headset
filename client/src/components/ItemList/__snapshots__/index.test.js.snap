@@ -5,6 +5,8 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ItemList
+    activeItem={Object {}}
+    getItems={[Function]}
     items={
         Array [
             Object {
@@ -38,34 +40,38 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
       "children": Array [
-        <Unknown
-          expanded={false}
-          handleChange={[Function]}
-          handleSave={[Function]}
-          item={
-                    Object {
-                              "by": "rchaudhary",
-                              "descendants": 9,
-                              "id": 17256923,
-                              "kids": Array [
-                                17259028,
-                                17258582,
-                                17258792,
-                                17258618,
-                                17259069,
-                                17258445,
-                              ],
-                              "score": 65,
-                              "time": 1528386584,
-                              "title": "Raising a Very Unusual Round of Funding and Open-Sourcing Our Docs",
-                              "type": "story",
-                              "url": "https://sparktoro.com/blog/raised-a-very-unusual-round-of-funding-were-open-sourcing-our-docs/",
-                            }
-          }
+        Array [
+          <Unknown
+            expanded={false}
+            handleChange={[Function]}
+            handleSave={[Function]}
+            isLoading={false}
+            item={
+                        Object {
+                                    "by": "rchaudhary",
+                                    "descendants": 9,
+                                    "id": 17256923,
+                                    "kids": Array [
+                                      17259028,
+                                      17258582,
+                                      17258792,
+                                      17258618,
+                                      17259069,
+                                      17258445,
+                                    ],
+                                    "score": 65,
+                                    "time": 1528386584,
+                                    "title": "Raising a Very Unusual Round of Funding and Open-Sourcing Our Docs",
+                                    "type": "story",
+                                    "url": "https://sparktoro.com/blog/raised-a-very-unusual-round-of-funding-were-open-sourcing-our-docs/",
+                                  }
+            }
 />,
+        ],
+        undefined,
       ],
     },
     "ref": null,
@@ -78,6 +84,7 @@ ShallowWrapper {
           "expanded": false,
           "handleChange": [Function],
           "handleSave": [Function],
+          "isLoading": false,
           "item": Object {
             "by": "rchaudhary",
             "descendants": 9,
@@ -101,41 +108,46 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
+      undefined,
     ],
-    "type": "div",
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": Array [
-          <Unknown
-            expanded={false}
-            handleChange={[Function]}
-            handleSave={[Function]}
-            item={
-                        Object {
-                                    "by": "rchaudhary",
-                                    "descendants": 9,
-                                    "id": 17256923,
-                                    "kids": Array [
-                                      17259028,
-                                      17258582,
-                                      17258792,
-                                      17258618,
-                                      17259069,
-                                      17258445,
-                                    ],
-                                    "score": 65,
-                                    "time": 1528386584,
-                                    "title": "Raising a Very Unusual Round of Funding and Open-Sourcing Our Docs",
-                                    "type": "story",
-                                    "url": "https://sparktoro.com/blog/raised-a-very-unusual-round-of-funding-were-open-sourcing-our-docs/",
-                                  }
-            }
+          Array [
+            <Unknown
+              expanded={false}
+              handleChange={[Function]}
+              handleSave={[Function]}
+              isLoading={false}
+              item={
+                            Object {
+                                          "by": "rchaudhary",
+                                          "descendants": 9,
+                                          "id": 17256923,
+                                          "kids": Array [
+                                            17259028,
+                                            17258582,
+                                            17258792,
+                                            17258618,
+                                            17259069,
+                                            17258445,
+                                          ],
+                                          "score": 65,
+                                          "time": 1528386584,
+                                          "title": "Raising a Very Unusual Round of Funding and Open-Sourcing Our Docs",
+                                          "type": "story",
+                                          "url": "https://sparktoro.com/blog/raised-a-very-unusual-round-of-funding-were-open-sourcing-our-docs/",
+                                        }
+              }
 />,
+          ],
+          undefined,
         ],
       },
       "ref": null,
@@ -148,6 +160,7 @@ ShallowWrapper {
             "expanded": false,
             "handleChange": [Function],
             "handleSave": [Function],
+            "isLoading": false,
             "item": Object {
               "by": "rchaudhary",
               "descendants": 9,
@@ -171,8 +184,9 @@ ShallowWrapper {
           "rendered": null,
           "type": [Function],
         },
+        undefined,
       ],
-      "type": "div",
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

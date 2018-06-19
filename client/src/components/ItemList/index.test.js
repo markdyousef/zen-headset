@@ -19,7 +19,9 @@ const ITEMS = [
 
 describe("ItemList", () => {
   test("should match snapshot", () => {
-    const wrapper = shallow(<ItemList items={ITEMS} />);
+    const wrapper = shallow(
+      <ItemList items={ITEMS} getItems={() => {}} activeItem={{}} />
+    );
     expect(wrapper).toMatchSnapshot();
   });
 });

@@ -28,7 +28,7 @@ export const convertToken = async token => {
 export const fetchData = () => async dispatch => {
   // get access token from localstorage
   const accessToken = localStorage.getItem("access_token");
-  dispatch(request(constants.COLLECTIONS_REQUEST));
+  dispatch(request(constants.REQUEST));
 
   // get collections from server
   const res = await fetch(`/api/collect/list/${accessToken}`);
@@ -37,21 +37,13 @@ export const fetchData = () => async dispatch => {
   // parse the returned list of items
   const keys = Object.keys(data.list);
   const items = keys.map(key => data.list[key]);
-  dispatch(response(constants.COLLECTIONS_RESPONSE, items));
+  dispatch(response(constants.RESPONSE, items));
 };
 
 /**
- * Add
+ * UI
  */
-export const saveItem = async (title, url) => {
-  const accessToken = localStorage.getItem("access_token");
-  const res = await fetch("/api/collect/list", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json"
-    },
-    body: JSON.stringify({ title, url, accessToken })
-  });
-  const data = await res.json();
-  return data;
-};
+export const setActive = itemId => ({
+  type: constants.SET_ACTIVE,
+  itemId
+});

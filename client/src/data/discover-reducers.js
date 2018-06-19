@@ -1,20 +1,56 @@
 import constants from "../constants/discover-action-types";
 
+const initialItemState = {
+  isLoading: false,
+  isSaved: false,
+  message: null
+};
+
+const item = (state = initialItemState, action) => {
+  switch (action.type) {
+    case constants.ITEM.REQUEST_SAVE:
+      return { ...state, isLoading: true };
+    case constants.ITEM.RESPONSE_SAVE:
+      return { ...state, isLoading: false, isSaved: true, message: "Saved!" };
+    default:
+      return state;
+  }
+};
+
 /**
  * Discover Reducer
  */
 const initialState = {
   isLoading: false,
   items: [],
-  expandedItem: -1
+  activeItem: initialItemState,
+  expandedItem: null,
+  message: null
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case constants.DISCOVER_REQUEST:
+    case constants.REQUEST:
       return { ...state, isLoading: true };
-    case constants.DISCOVER_RESPONSE:
+    case constants.RESPONSE:
       return { ...state, isLoading: false, items: action.data };
+    case constants.ITEM.REQUEST_SAVE:
+      return { ...state, activeItem: item(state.activeItem, action) };
+    case constants.ITEM.RESPONSE_SAVE:
+      return { ...state, activeItem: item(state.activeItem, action) };
+    case constants.SET_STATE:
+      return { ...state, ...action.state };
+    case constants.REMOVE_ITEM:
+      return {
+        ...state,
+        expandedItem: null,
+        items: state.items.filter(item => item.id != action.id)
+      };
+    case constants.EXPAND_ITEM:
+      return {
+        ...state,
+        expandedItem: (state.expandedItem === action.id) ? null : action.id
+      };
     default:
       return state;
   }
