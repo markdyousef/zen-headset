@@ -5,12 +5,12 @@ import {
   Toolbar,
   IconButton,
   Slide,
-  Chip,
-  LinearProgress
+  LinearProgress,
 } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import InfoCard from "./InfoCard";
 
 const AppBarContainer = styled.nav``;
 
@@ -27,18 +27,6 @@ const LoaderContainer = styled.div`
 function Transition(props) {
   return <Slide direction="up" {...props} />;
 }
-
-const Info = ({ item }) => {
-  return (
-    <div>
-      <p>{item.excerpt}</p>
-      <h1>{item.given_title}</h1>
-      <a href={item.given_url}>{item.given_url}</a>
-      <img src={item.image && item.image.src} />
-      {/* {Object.keys(item.tags).map(tag => <Chip label={tag} key={tag} />)} */}
-    </div>
-  );
-};
 
 class FullScreenDialog extends Component {
   componentDidMount() {
@@ -72,7 +60,7 @@ class FullScreenDialog extends Component {
     }
     return (
       <ContentContainer>
-        <Info item={activeItem} />
+        <InfoCard item={activeItem} />
       </ContentContainer>
     );
   };
