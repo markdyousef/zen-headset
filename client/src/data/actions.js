@@ -2,10 +2,9 @@ export const request = type => ({
   type
 });
 
-export const response = (type, data, message) => ({
+export const response = (type, data) => ({
   type,
-  data,
-  message
+  data
 });
 
 export const setState = (type, state) => ({

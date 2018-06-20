@@ -33,6 +33,7 @@ export default class extends Component {
   }
   renderCards = () => {
     const { items, isLoading } = this.props;
+    console.log(items)
 
     if (isLoading) return <CircularLoader />
 
