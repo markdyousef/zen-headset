@@ -9,6 +9,9 @@ const ListContainer = styled.section`
 `;
 
 class ItemList extends React.Component {
+  state = {
+    showMessage: true
+  }
   componentWillMount() {
     this.props.getItems();
   }
@@ -37,8 +40,10 @@ class ItemList extends React.Component {
       return (
         <Snackbar
           anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-          open={activeItem.message}
+          open={!!activeItem.message&&this.state.showMessage}
           message={<span>{activeItem.message}</span>}
+          onClose={() => this.setState({showMessage: false})}
+          autoHideDuration={1000}
         />
       );
     }
