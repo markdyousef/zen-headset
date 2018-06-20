@@ -20,7 +20,7 @@ describe("UNIT TESTS – collection-actions", () => {
 /**
  * API Calls to /api/collect/*
  */
-describe("INTEGRATION TESTS – collection.actions", () => {
+describe("INTEGRATION TESTS – collection-actions", () => {
   beforeEach(() => {
     fetch.resetMocks();
   });
@@ -54,13 +54,14 @@ describe("INTEGRATION TESTS – collection.actions", () => {
   });
   test("dispatches the correct actions and fetches collections from server", done => {
     fetch.mockResponseOnce(JSON.stringify(collectionListJson));
-
+    const items = actions.parseItems(collectionListJson);
     const expectedActions = [
       {
         type: constants.REQUEST
       },
       {
-        type: constants.RESPONSE
+        type: constants.RESPONSE,
+        data: items
       }
     ];
     const store = mockStore({ items: [] });

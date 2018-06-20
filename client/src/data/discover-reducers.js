@@ -1,12 +1,12 @@
 import constants from "../constants/discover-action-types";
 
-const initialItemState = {
+export const initialItemState = {
   isLoading: false,
   isSaved: false,
   message: null
 };
 
-const item = (state = initialItemState, action) => {
+export const itemReducer = (state = initialItemState, action) => {
   switch (action.type) {
     case constants.ITEM.REQUEST_SAVE:
       return { ...state, isLoading: true };
@@ -35,11 +35,9 @@ export default (state = initialState, action) => {
     case constants.RESPONSE:
       return { ...state, isLoading: false, items: action.data };
     case constants.ITEM.REQUEST_SAVE:
-      return { ...state, activeItem: item(state.activeItem, action) };
+      return { ...state, activeItem: itemReducer(state.activeItem, action) };
     case constants.ITEM.RESPONSE_SAVE:
-      return { ...state, activeItem: item(state.activeItem, action) };
-    case constants.SET_STATE:
-      return { ...state, ...action.state };
+      return { ...state, activeItem: itemReducer(state.activeItem, action) };
     case constants.REMOVE_ITEM:
       return {
         ...state,
