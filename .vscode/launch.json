@@ -5,6 +5,23 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Flask",
+      "type": "python",
+      "request": "launch",
+      "stopOnEntry": false,
+      "pythonPath": "${config:python.pythonPath}",
+      "module": "flask",
+      "cwd": "${workspaceFolder}/lang-services",
+      "env": {
+        "FLASK_APP": "app.py"
+      },
+      "args": [
+        "run",
+        "--no-debugger",
+        "--no-reload"
+      ]
+    },
+    {
       "type": "node",
       "name": "client-jest",
       "request": "launch",
