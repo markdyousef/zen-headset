@@ -1,6 +1,6 @@
 from flask_restful import Resource, reqparse
 from models.text import TextModel
-
+from tasks import parse_text
 
 class Text(Resource):
     parser = reqparse.RequestParser()
@@ -10,7 +10,9 @@ class Text(Resource):
     def post(self):
         data = Text.parser.parse_args()
         url = data["url"]
-        print(url)
+
+        parse_text.delay(url)
+
         if TextModel.find_by_url(url):
             return {"message": "A text with url '{}' already exists".format(url)}, 400
         
