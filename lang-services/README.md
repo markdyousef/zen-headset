@@ -20,7 +20,7 @@
 ### Cellery
 Run a worker
 
-        celery -A run.celery worker --loglevel=debug
+        celery -A tasks.celery worker --loglevel=debug
 
 ### Flask App
 Run server

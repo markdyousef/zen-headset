@@ -5,21 +5,11 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Flask",
+      "name": "Python",
       "type": "python",
       "request": "launch",
-      "stopOnEntry": false,
-      "pythonPath": "${config:python.pythonPath}",
-      "module": "flask",
-      "cwd": "${workspaceFolder}/lang-services",
-      "env": {
-        "FLASK_APP": "app.py"
-      },
-      "args": [
-        "run",
-        "--no-debugger",
-        "--no-reload"
-      ]
+      "program": "${workspaceFolder}/lang-services/app.py",
+      "cwd": "${workspaceFolder}/lang-services"
     },
     {
       "type": "node",

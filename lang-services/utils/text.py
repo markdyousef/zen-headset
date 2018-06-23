@@ -1,18 +1,18 @@
 from newspaper import Article
 import spacy
 nlp = spacy.load("en_core_web_sm")
+import time
 
 
 def get_text(url):
-    print("Inside: ", url)
-    article = Article(
-        'http://fox13now.com/2013/12/30/new-year-new-laws-obamacare-pot-guns-and-drones/')
+    article = Article(url)
     article.download()
-    article.parse()
-    print(article)
-    text = article.text
-    print(text)
-    return text
+    # download doesn't always work
+    try:
+        article.parse()
+        return article.text
+    except Exception as excep:
+        return False
 
 
 def analyze_text(text):
