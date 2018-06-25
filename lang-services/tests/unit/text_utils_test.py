@@ -10,5 +10,5 @@ class TestTextUtils(object):
     def test_analyze_text(self):
         text = get_text(
             'https://www.atlasobscura.com/articles/where-is-vanilla-grown')
-        analysis = analyze_text(text)
-        assert isinstance(analysis, list)
+        tokens, ents, parse_tree = analyze_text(text)
+        assert isinstance(tokens, list)

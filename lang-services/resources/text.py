@@ -9,7 +9,9 @@ def parse_article(article):
         "_id": str(article.get("_id")), # hex encoded version of mongo's ObjectId
         "url": article.get("url"),
         "text": article.get("text"),
-        "analysis": article.get("analysis")
+        "tokens": article.get("tokens"),
+        "entities": article.get("entities"),
+        "tree": article.get("tree")
     }
 
 

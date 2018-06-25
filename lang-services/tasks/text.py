@@ -11,10 +11,16 @@ celery = make_celery(create_app())
 def parse_text_to_db(url):
     articles = db["articles"]
     text = get_text(url)
-    analysis = analyze_text(text)
+    tokens, entities, parse_tree = analyze_text(text)
 
     # upsert article item
+    fields = {
+        "text": text,
+        "tokens": tokens,
+        "entities": entities,
+        "tree": parse_tree}
+
     updated_article = articles.update_one(
-        {"url": url}, {"$set": {"text": text, "analysis": analysis}}, True)
+        {"url": url}, {"$set": fields}, True)
 
     return updated_article
