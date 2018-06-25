@@ -5,13 +5,14 @@ const io = require("socket.io")(server);
 const headsetData = require("./api/headset-data");
 const discoverData = require("./api/discover-data");
 const collectPocket = require("./api/collect-pocket-integration");
+const db = require("./utils/mongodb");
 
 // set environment variables
 require("dotenv").config();
 const port = process.env.PORT || 5000;
 const { PROJECT_ID, DATASET_TEST, TABLE } = process.env;
 
-app.use(express.json());       // to support JSON-encoded bodies
+app.use(express.json()); // to support JSON-encoded bodies
 app.use(express.urlencoded()); // to support URL-encoded bodies
 /**
  * Headset API
@@ -56,11 +57,18 @@ collect.get("/list/:accessToken", (req, res) => {
   const accessToken = req.params.accessToken;
   collectPocket
     .getData(accessToken)
-    .then(data => res.json(data))
+    .then(data => {
+      // sync pocket list with mongodb
+      const keys = Object.keys(data.list);
+      const items = keys.map(key => data.list[key]);
+      db.syncPocketList(items);
+
+      return res.json(data);
+    })
     .catch(err => res.json(err));
 });
 collect.post("/list", (req, res) => {
-  const { title, url, accessToken } = req.body; 
+  const { title, url, accessToken } = req.body;
   collectPocket
     .saveItem(accessToken, title, url)
     .then(data => res.json(data))
@@ -76,7 +84,7 @@ collect.get("/access_token/:requestToken", (req, res) => {
   const requestToken = req.params.requestToken;
   collectPocket
     .convertToken(requestToken)
-    .then(token => res.json({token}))
+    .then(token => res.json({ token }))
     .catch(err => res.json({ err }));
 });
 
