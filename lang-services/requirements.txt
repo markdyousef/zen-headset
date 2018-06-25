@@ -3,3 +3,4 @@ Flask-RESTful
 Flask-JWT
 spacy
 pymongo
+flask-cors

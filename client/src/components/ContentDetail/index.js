@@ -36,6 +36,7 @@ function Transition(props) {
 class FullScreenDialog extends Component {
   componentDidMount() {
     this.loadItem();
+    this.props.getAnalysis();
   }
   componentWillReceiveProps(nextProps) {
     const { isLoading, items } = nextProps;

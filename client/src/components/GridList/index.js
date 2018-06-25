@@ -7,7 +7,7 @@ import {
 } from "@material-ui/core";
 import InfoIcon from "@material-ui/icons/Info";
 import styled from "styled-components";
-import ContentDetail from "../ContentDetail";
+import CollectionItem from "../CollectionItem";
 import { Route, Link } from "react-router-dom";
 import {CircularLoader} from "../common";
 
@@ -33,7 +33,6 @@ export default class extends Component {
   }
   renderCards = () => {
     const { items, isLoading } = this.props;
-    console.log(items)
 
     if (isLoading) return <CircularLoader />
 
@@ -64,7 +63,7 @@ export default class extends Component {
     return (
       <Container>
         {this.renderCards()}
-        <Route path={"/collections/:item_id"} component={ContentDetail} />
+        <Route path={"/collections/:item_id"} component={CollectionItem} />
       </Container>
     );
   }
