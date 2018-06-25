@@ -1,19 +1,32 @@
 from flask_restful import Resource, reqparse
-from tasks import parse_text_to_db
-from db import db
+from tasks.text import parse_text_to_db
+from db import connect_db
+import json
+
+
+def parse_article(article):
+    return {
+        "_id": str(article.get("_id")), # hex encoded version of mongo's ObjectId
+        "url": article.get("url"),
+        "text": article.get("text"),
+        "analysis": article.get("analysis")
+    }
 
 
 class Text(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument("url", type=str, required=True,
                         help="Please provide a url")
+    db = connect_db()
 
     def get(self):
-        articles = db["articles"]
-        return [doc for doc in articles.find()]
+        articles = Text.db["articles"]
+        docs = [doc for doc in articles.find()]
+
+        return [parse_article(doc) for doc in docs]
 
     def post(self):
-        articles = db["articles"]
+        articles = Text.db["articles"]
         data = Text.parser.parse_args()
         url = data["url"]
 
