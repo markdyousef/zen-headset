@@ -31,12 +31,12 @@ def analyze_text(text):
     # Entities
     entities = []
     for ent in doc.ents:
-        entity ={
+        entity = {
             "text": ent.text, "label": ent.label_
         }
         entities.append(entity)
-    
-    # Parse trees in JSON    
+
+    # Parse trees in JSON
     parse_trees = doc.print_tree()
 
     return tokens, entities, parse_trees
